@@ -35,11 +35,7 @@ Set up the shared letter wall
 
 Without this step, letters are saved on one device only.
 
-Create a Firebase project and add a Realtime Database.
-In the Rules tab, publish:
-json
-{"rules":{"letters":{".read":true,"$id":{".write":"!data.exists()",".validate":"newData.hasChildren(['to','from','msg','t']) && newData.child('msg').isString() && newData.child('msg').val().length>0 && newData.child('msg').val().length<=160 && newData.child('to').val().length<=20 && newData.child('from').val().length<=20 && newData.child('t').isNumber()"}}}}
-Copy the database address and put it in index.html: const WALL_URL='https://your-project-default-rtdb.firebaseio.com';
+
 
 Anyone can add a letter but not edit or delete one. Delete unwanted letters from the Firebase console's Data tab. Letters are public, so don't post private details.
 
